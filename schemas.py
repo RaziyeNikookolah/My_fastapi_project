@@ -9,7 +9,7 @@ class UserBase(pydantic.BaseModel):
     
     
 class UserRequest(UserBase):
-    password_hash:str
+    password:str
     
     class Config:
         orm_mode=True
@@ -34,6 +34,7 @@ class PostRequest(PostBase):
         orm_mod=True
         
 class PostResponse(PostBase):
+    
     id:int
     created_at:datetime.datetime
     user_id:int
