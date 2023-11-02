@@ -12,7 +12,7 @@ If you try to use a single SQLite database connection from multiple threads simu
 
 """
 
-engine=sqlalchemy.create_engin(DB_URL,connect_args={"check_same_thread":False})
+engine=sqlalchemy.create_engine(DB_URL,connect_args={"check_same_thread":False})
 
 SessionLocal = orm.sessionmaker(autocommit=False,autoflush=False,bind=engine)
 """
