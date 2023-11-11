@@ -7,18 +7,22 @@ books=[]
 
 
 class BookRequest(BaseModel) :
+    
     id :Optional[int]=Field(None,
         title='id is optional',
         description='unique field')
     title:str=Field(max_length=150,min_length=1)
     author:str=Field(max_length=150,min_length=1)
     page_count:int=Field(gt=5,lt=1000)
+    rating:int=Field(lt=5,gt=0)
+    
     class Config:
         json_schema_extra={
             'example':{
                 'title':'A new book',
                 'author':'me',
-                'page_count':100
+                'page_count':100,
+                'rating':5
             }
         }
     
